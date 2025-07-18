@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 
+=======
+>>>>>>> 37218ee941606064404ce0a43c3ce5b7bf67ba72
 {
   "name": "sankofa-lab-showcase",
   "private": true,
@@ -19,4 +22,8 @@
     "typescript": "~5.7.2",
     "vite": "^6.2.0"
   }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 37218ee941606064404ce0a43c3ce5b7bf67ba72

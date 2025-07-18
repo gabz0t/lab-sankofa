@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 
+=======
+>>>>>>> 37218ee941606064404ce0a43c3ce5b7bf67ba72
 {
   "compilerOptions": {
     "target": "ES2020",
@@ -22,6 +25,16 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
+<<<<<<< HEAD
     "noUncheckedSideEffectImports": true
   }
 }
+=======
+    "noUncheckedSideEffectImports": true,
+
+    "paths": {
+      "@/*" :  ["./*"]
+    }
+  }
+}
+>>>>>>> 37218ee941606064404ce0a43c3ce5b7bf67ba72
