@@ -1,0 +1,1129 @@
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #0A0710;
+  color: #f3f3f3;
+}
+html {
+  scroll-behavior: smooth;
+}
+h1, h2, h3, .logo {
+  font-family: 'Cormorant Garamond', serif;
+}
+
+/* Animation for elements scrolling into view */
+.scroll-animate {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.scroll-animate.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Keyframe animation for the CTA button glow */
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 15px 0px rgba(245, 182, 72, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 30px 6px rgba(245, 182, 72, 0.3);
+  }
+}
+
+.cta-glow {
+  animation: pulse-glow 4s infinite ease-in-out;
+}
+
+/* Animation for floating glyphs */
+.glyph {
+  position: absolute;
+  color: rgba(245, 182, 72, 0.08);
+  animation: float-rotate 25s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes float-rotate {
+  0% { transform: translateY(0) rotate(0deg); opacity: 0.08; }
+  50% { transform: translateY(-25px) rotate(180deg); opacity: 0.12; }
+  100% { transform: translateY(0) rotate(360deg); opacity: 0.08; }
+}
+
+/* Hover aura effect */
+.hover-aura {
+  position: relative;
+  z-index: 1;
+  transition: color 0.4s ease;
+}
+.hover-aura::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(245, 182, 72, 0.3) 0%, rgba(245, 182, 72, 0) 65%);
+  border-radius: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  z-index: -1;
+}
+.hover-aura:hover::before {
+  transform: translate(-50%, -50%) scale(3);
+}
+
+/* Ritual Catalog Page Styles */
+.ritual-catalog-page {
+  background-color: #0B0013;
+  color: #d1d1d1;
+  padding: 6rem 1rem 4rem; /* Padding top to account for fixed header */
+}
+
+.ritual-catalog-title {
+  font-family: 'Cinzel Decorative', serif;
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  color: #FFDE8B;
+  text-shadow: 0 0 15px rgba(255, 222, 139, 0.3);
+}
+
+.ritual-catalog-subtitle {
+  font-family: 'Jost', sans-serif;
+  max-width: 600px;
+  line-height: 1.7;
+}
+
+.ritual-filters {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+  margin: 2.5rem 0;
+}
+
+.ritual-filters button {
+  font-family: 'Jost', sans-serif;
+  background-color: transparent;
+  border: 1px solid rgba(255, 222, 139, 0.3);
+  color: rgba(255, 222, 139, 0.8);
+  padding: 0.5rem 1.5rem;
+  border-radius: 9999px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.ritual-filters button:hover {
+  background-color: rgba(255, 222, 139, 0.1);
+  border-color: rgba(255, 222, 139, 0.7);
+  color: #FFDE8B;
+}
+
+.ritual-filters button.active {
+  background-color: #FFDE8B;
+  color: #4A2C1A;
+  font-weight: bold;
+  border-color: #FFDE8B;
+}
+
+/* Ritual Product Card */
+.ritual-product-card {
+  position: relative;
+  background: linear-gradient(145deg, #1a1024, #100a18);
+  border: 1px solid rgba(255, 222, 139, 0.1);
+  border-radius: 0.5rem;
+  overflow: hidden;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  will-change: transform, box-shadow;
+}
+
+.ritual-product-card:hover {
+  transform: scale(1.03) translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(255, 222, 139, 0.2);
+}
+
+.ritual-product-card .image-container {
+  position: relative;
+  overflow: hidden;
+}
+.ritual-product-card .image-container img {
+  transition: transform 0.5s ease;
+}
+.ritual-product-card:hover .image-container img {
+  transform: scale(1.1);
+}
+
+.ritual-product-card .sankofa-seal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1.2);
+  width: 50%;
+  height: auto;
+  color: rgba(255, 222, 139, 0.8);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+}
+
+.ritual-product-card:hover .sankofa-seal {
+  opacity: 0.1;
+}
+
+.ritual-card-title {
+  font-family: 'Cormorant Garamond', serif;
+  color: #FFDE8B;
+}
+
+.ritual-card-button {
+  font-family: 'Jost', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  background-color: rgba(255, 222, 139, 0.1);
+  border: 1px solid rgba(255, 222, 139, 0.5);
+  color: #FFDE8B;
+  transition: all 0.3s ease;
+}
+
+.ritual-card-button:hover {
+  background-color: #FFDE8B;
+  color: #4A2C1A;
+  box-shadow: 0 0 15px rgba(255, 222, 139, 0.4);
+}
+
+.ritual-final-phrase {
+  font-family: 'Jost', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: #FFDE8B;
+}
+
+.grid-card-enter {
+  opacity: 0;
+  transform: translateY(20px) scale(0.95);
+}
+.grid-card-enter-active {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  transition: opacity 300ms, transform 300ms;
+}
+.grid-card-exit {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+.grid-card-exit-active {
+  opacity: 0;
+  transform: translateY(-20px) scale(0.95);
+  transition: opacity 300ms, transform 300ms;
+}
+
+/* Digital Products Section (DEPRECATED, REPLACED BY INVISIBLE CALLS PAGE) */
+.digital-products-section {
+  display: none;
+}
+
+/* Keyframe for fadeIn animation used by digital product cards/pages */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+
+/* Digital Product Page */
+.digital-product-page {
+  padding: 6rem 1rem 4rem;
+  background-color: #0A0010;
+  color: #e0e0e0;
+}
+
+.back-button {
+  color: #FFDE8B;
+  background-color: rgba(255, 222, 139, 0.1);
+  transition: all 0.3s ease;
+}
+.back-button:hover {
+  background-color: rgba(255, 222, 139, 0.2);
+  transform: translateX(-4px);
+}
+
+.product-page-title {
+  font-family: 'Cinzel Decorative', serif;
+  color: #f0f0f0;
+}
+
+.product-page-subtitle {
+  font-family: 'Cormorant Garamond', serif;
+  color: #c0c0c0;
+}
+
+.product-page-cover {
+  border: 1px solid rgba(255, 222, 139, 0.2);
+  box-shadow: 0 0 30px rgba(255, 222, 139, 0.1);
+}
+
+.info-badge {
+  font-family: 'Jost', sans-serif;
+  background-color: rgba(94, 58, 126, 0.2);
+  border: 1px solid rgba(94, 58, 126, 0.4);
+  color: #e0c8f5;
+}
+
+.access-box {
+  background-color: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 222, 139, 0.1);
+}
+
+.excerpt-box {
+  background: linear-gradient(145deg, #1a1024, #100a18);
+  border-left: 3px solid #FFDE8B;
+  font-family: 'Cormorant Garamond', serif;
+}
+.excerpt-box .sankofa-seal {
+  opacity: 0.03;
+  color: #FFDE8B;
+}
+
+.cta-button {
+  font-family: 'Jost', sans-serif;
+  background-color: #FFDE8B;
+  color: #0A0010;
+  box-shadow: 0 0 20px rgba(255, 222, 139, 0.4);
+  transition: all 0.3s ease;
+  animation: pulse-glow 3s infinite ease-in-out;
+}
+.cta-button:hover {
+  transform: scale(1.05); 
+  box-shadow: 0 0 30px rgba(255, 222, 139, 0.6);
+}
+
+/* Sankofa Universe Page */
+.sankofa-universe-page {
+  background: linear-gradient(170deg, #0A0010 0%, #130a1f 70%, #0A0010 100%);
+  padding: 6rem 1rem 4rem; /* Padding top to account for fixed header */
+  color: #d1d1d1;
+}
+
+.universe-title {
+  font-family: 'Cinzel Decorative', serif;
+  color: #FFDE8B;
+  text-shadow: 0 0 15px rgba(255, 222, 139, 0.3);
+}
+
+.universe-subtitle {
+  font-family: 'Cormorant Garamond', serif;
+  color: #c0c0c0;
+}
+
+.pillar-card {
+  background-color: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 222, 139, 0.15);
+  transition: all 0.4s ease;
+}
+
+.pillar-card:hover {
+  background-color: rgba(255, 222, 139, 0.05);
+  border-color: rgba(255, 222, 139, 0.4);
+  transform: translateY(-5px);
+  box-shadow: 0 5px 25px rgba(0,0,0,0.2);
+}
+
+.pillar-icon {
+  color: #FFDE8B;
+  filter: drop-shadow(0 0 8px rgba(255, 222, 139, 0.5));
+}
+
+.universe-cta-button {
+  font-family: 'Jost', sans-serif;
+  background-color: transparent;
+  border: 2px solid #FFDE8B;
+  color: #FFDE8B;
+  transition: all 0.3s ease;
+}
+.universe-cta-button:hover {
+  background-color: #FFDE8B;
+  color: #130f20;
+  box-shadow: 0 0 20px rgba(255, 222, 139, 0.5);
+  transform: scale(1.05);
+}
+
+/* ================================== */
+/* ===== NEW PAGES ADDED HERE ===== */
+/* ================================== */
+
+.page-container {
+  padding: 6rem 1rem 4rem;
+  background: linear-gradient(170deg, #0A0010 0%, #130a1f 70%, #0A0010 100%);
+  color: #d1d1d1;
+  font-family: 'Jost', sans-serif;
+}
+.page-container.editor-page {
+   background: linear-gradient(170deg, #100a18 0%, #0A0010 100%);
+}
+
+
+.page-title {
+  font-family: 'Cormorant Unicase', serif;
+  opacity: 0.85;
+  color: #FFDE8B;
+  text-shadow: 0 0 15px rgba(255, 222, 139, 0.3);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.page-subtitle {
+  font-family: 'Jost', sans-serif;
+  color: #c0c0c0;
+}
+
+/* Generic Ritualistic Button */
+.ritual-button {
+  font-family: 'Jost', sans-serif;
+  background-color: transparent;
+  border: 1px solid rgba(255, 222, 139, 0.7);
+  color: #FFDE8B;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+}
+.ritual-button:hover {
+  background-color: #FFDE8B;
+  color: #130f20;
+  box-shadow: 0 0 20px rgba(255, 222, 139, 0.5);
+  transform: scale(1.05);
+}
+
+/* ===== Account Page ===== */
+.account-page .tab-menu button {
+  background: transparent;
+  border-left: 2px solid rgba(255, 222, 139, 0.2);
+  color: rgba(220, 200, 255, 0.7);
+  transition: all 0.4s ease;
+}
+.account-page .tab-menu button:hover {
+  background: rgba(255, 222, 139, 0.05);
+  color: rgba(220, 200, 255, 1);
+}
+.account-page .tab-menu button.active {
+  background: rgba(255, 222, 139, 0.1);
+  border-left-color: #FFDE8B;
+  color: #FFDE8B;
+  transform: translateX(5px);
+}
+.auth-tabs {
+    display: flex;
+    border-bottom: 1px solid rgba(255, 222, 139, 0.2);
+    margin-bottom: 1.5rem;
+}
+.auth-tab {
+    flex: 1;
+    padding: 0.75rem;
+    text-align: center;
+    font-family: 'Jost', sans-serif;
+    color: rgba(220, 200, 255, 0.7);
+    border-bottom: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+.auth-tab:hover {
+    color: #FFDE8B;
+}
+.auth-tab.active {
+    color: #FFDE8B;
+    font-weight: bold;
+    border-bottom-color: #FFDE8B;
+}
+.auth-feedback {
+    text-align: center;
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+    border-radius: 0.375rem;
+    font-size: 0.875rem;
+}
+.auth-feedback.error {
+    background-color: rgba(239, 68, 68, 0.1);
+    color: #f87171;
+}
+.auth-feedback.success {
+    background-color: rgba(74, 222, 128, 0.1);
+    color: #86efac;
+}
+.logout-button {
+    transition: all 0.3s ease;
+}
+
+@keyframes content-fade-in {
+  from { opacity: 0; transform: translateX(10px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+.account-page .tab-content {
+  animation: content-fade-in 0.5s ease forwards;
+}
+.account-page .ritual-card {
+  background-color: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 222, 139, 0.15);
+  transition: all 0.4s ease;
+}
+.account-page .ritual-card:hover {
+  background-color: rgba(255, 222, 139, 0.05);
+  border-color: rgba(255, 222, 139, 0.4);
+  box-shadow: 0 0 15px rgba(255, 222, 139, 0.2);
+}
+
+/* ===== Contact Page ===== */
+.ritual-form-field {
+  background-color: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 222, 139, 0.2);
+  color: #d1d1d1;
+  transition: all 0.3s ease;
+  border-radius: 0.375rem;
+  padding: 0.75rem 1rem;
+  width: 100%;
+}
+.ritual-form-field:focus {
+  outline: none;
+  border-color: #FFDE8B;
+  box-shadow: 0 0 15px rgba(255, 222, 139, 0.3);
+}
+.contact-page .intention-selector label {
+  border: 1px solid rgba(255, 222, 139, 0.3);
+  transition: all 0.3s ease;
+}
+.contact-page .intention-selector input:checked + label {
+  background-color: rgba(255, 222, 139, 0.1);
+  border-color: #FFDE8B;
+  color: #FFDE8B;
+}
+.contact-page .intention-bg-growth { background-color: rgba(167, 243, 208, 0.05) !important; }
+.contact-page .intention-bg-protection { background-color: rgba(199, 210, 254, 0.05) !important; }
+.contact-page .intention-bg-vision { background-color: rgba(224, 192, 255, 0.05) !important; }
+
+@keyframes pulse-icon {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+.contact-page .direct-contact-icon {
+  animation: pulse-icon 3s infinite ease-in-out;
+}
+
+/* ===== Cart Page / Checkout ===== */
+.cart-page .glass-card {
+  background: rgba(16, 10, 24, 0.6);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 222, 139, 0.2);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+.cart-page .key-input {
+  background-color: rgba(0,0,0,0.2);
+  border: 1px solid rgba(255, 222, 139, 0.3);
+}
+.cart-page .key-button {
+  background-color: rgba(255, 222, 139, 0.8);
+  color: #130f20;
+}
+.cart-page .key-button:hover {
+  background-color: #FFDE8B;
+}
+
+/* Checkout Ritual Animation */
+@keyframes particle-rise {
+  from {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(-150px) scale(0.5);
+    opacity: 0;
+  }
+}
+.ritual-particle {
+  position: absolute;
+  bottom: 0;
+  width: 3px;
+  height: 3px;
+  background-color: #FFDE8B;
+  border-radius: 50%;
+  animation-name: particle-rise;
+  animation-timing-function: ease-out;
+  animation-iteration-count: 1;
+  box-shadow: 0 0 10px #FFDE8B;
+}
+
+/* ================================== */
+/* ===== ADMIN RITUAL PANEL ======== */
+/* ================================== */
+
+/* Secret Access Button */
+#admin-secret-button {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  z-index: 100;
+  background-color: rgba(255, 222, 139, 0.1);
+  border: 1px solid rgba(255, 222, 139, 0.2);
+  border-radius: 9999px;
+  padding: 0.75rem;
+  color: #FFDE8B;
+  opacity: 0.2;
+  transition: all 0.4s ease;
+  cursor: pointer;
+}
+#admin-secret-button:hover {
+  opacity: 1;
+  transform: scale(1.1);
+  box-shadow: 0 0 20px rgba(255, 222, 139, 0.4);
+}
+#admin-secret-button .admin-tooltip {
+  position: absolute;
+  bottom: 110%;
+  right: 50%;
+  transform: translateX(50%);
+  background-color: #FFDE8B;
+  color: #130f20;
+  padding: 0.25rem 0.75rem;
+  border-radius: 0.25rem;
+  font-size: 0.75rem;
+  font-weight: bold;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  pointer-events: none;
+}
+#admin-secret-button:hover .admin-tooltip {
+  opacity: 1;
+  visibility: visible;
+  bottom: 120%;
+}
+
+/* Admin Page Layout */
+.admin-ritual-page .admin-tab-menu button {
+  font-family: 'Jost', sans-serif;
+  background: transparent;
+  border-left: 3px solid rgba(255, 222, 139, 0.2);
+  color: rgba(220, 200, 255, 0.7);
+  transition: all 0.4s ease;
+  font-weight: 500;
+}
+.admin-ritual-page .admin-tab-menu button:hover {
+  background: rgba(255, 222, 139, 0.05);
+  color: #FFDE8B;
+  border-left-color: rgba(255, 222, 139, 0.5);
+}
+.admin-ritual-page .admin-tab-menu button.active {
+  background: rgba(255, 222, 139, 0.1);
+  border-left-color: #FFDE8B;
+  color: #FFDE8B;
+  font-weight: 700;
+  transform: translateX(5px);
+}
+
+/* Overview Tab */
+.admin-metric-card {
+  background-color: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 222, 139, 0.15);
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  text-align: center;
+}
+.rune-chart-bg {
+  fill: none;
+  stroke: rgba(255, 222, 139, 0.1);
+  stroke-width: 10;
+}
+.rune-chart-progress {
+  fill: none;
+  stroke: #FFDE8B;
+  stroke-width: 10;
+  stroke-linecap: round;
+  transform: rotate(-90deg);
+  transform-origin: center;
+  transition: stroke-dashoffset 0.5s ease;
+}
+.rune-chart-text {
+  fill: #FFDE8B;
+  font-family: 'Jost', sans-serif;
+}
+
+/* Overview Tab - Creation Sanctuary */
+@keyframes pulse-energy {
+  0% { box-shadow: 0 0 12px rgba(255, 222, 139, 0.2); }
+  50% { box-shadow: 0 0 24px rgba(255, 222, 139, 0.4); }
+  100% { box-shadow: 0 0 12px rgba(255, 222, 139, 0.2); }
+}
+.creation-sanctuary-card {
+  position: relative;
+  background: rgba(16, 10, 24, 0.6);
+  border: 1px solid rgba(255, 222, 139, 0.2);
+  transition: all 0.4s ease;
+  cursor: pointer;
+}
+.creation-sanctuary-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(255, 222, 139, 0.5);
+  animation: pulse-energy 2s infinite ease-in-out;
+}
+.creation-sanctuary-card .creation-tooltip {
+  position: absolute;
+  bottom: -2.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #FFDE8B;
+  color: #130f20;
+  padding: 0.25rem 0.75rem;
+  border-radius: 0.25rem;
+  font-size: 0.75rem;
+  font-weight: bold;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  pointer-events: none;
+}
+.creation-sanctuary-card:hover .creation-tooltip {
+  opacity: 1;
+  visibility: visible;
+  bottom: -3rem;
+}
+
+
+/* Create Key Tab */
+.create-key-card {
+  background: rgba(16, 10, 24, 0.6);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 222, 139, 0.2);
+  padding: 2rem;
+  border-radius: 0.5rem;
+}
+@keyframes pulse-button-glow {
+  0% { box-shadow: 0 0 10px rgba(255, 222, 139, 0.3); }
+  50% { box-shadow: 0 0 25px rgba(255, 222, 139, 0.6); }
+  100% { box-shadow: 0 0 10px rgba(255, 222, 139, 0.3); }
+}
+.create-key-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-family: 'Jost', sans-serif;
+  background-color: #FFDE8B;
+  color: #130f20;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 0.75rem;
+  border-radius: 0.375rem;
+  font-weight: bold;
+  animation: pulse-button-glow 3s infinite;
+}
+.create-key-button:hover {
+  transform: scale(1.03);
+}
+
+/* List Keys Tab */
+.coupon-list-card {
+  background-color: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 222, 139, 0.15);
+  border-radius: 0.5rem;
+  padding: 1rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: all 0.3s ease;
+}
+.coupon-list-card:hover {
+  background-color: rgba(255, 222, 139, 0.05);
+  border-color: rgba(255, 222, 139, 0.4);
+}
+.admin-action-button {
+  background: rgba(255, 222, 139, 0.1);
+  color: #FFDE8B;
+  border: 1px solid transparent;
+  font-size: 0.875rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  transition: all 0.3s ease;
+}
+.admin-action-button:hover {
+  background: #FFDE8B;
+  color: #130f20;
+}
+
+/* Rewards Tab */
+.reward-flow-panel {
+  background-color: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 222, 139, 0.15);
+  padding: 2rem;
+  border-radius: 0.5rem;
+}
+.reward-flow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+.reward-flow-item {
+  background: rgba(16, 10, 24, 0.8);
+  border: 1px solid rgba(255, 222, 139, 0.2);
+  padding: 1rem;
+  border-radius: 0.375rem;
+  text-align: center;
+}
+.reward-flow-connector {
+  flex-grow: 1;
+  height: 2px;
+  background: linear-gradient(90deg, rgba(255, 222, 139, 0.5) 0%, rgba(255, 222, 139, 0) 100%);
+}
+.reward-flow-connector::before {
+    content: '→';
+    color: #FFDE8B;
+    font-size: 1.5rem;
+    position: relative;
+    right: -10px;
+}
+
+
+/* ================================== */
+/* ===== PRODUCT EDITORS ===== */
+/* ================================== */
+
+.ritual-search-bar {
+    background: rgba(16, 10, 24, 0.6);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 222, 139, 0.2);
+}
+
+.product-admin-card {
+    background: linear-gradient(145deg, #1a1024, #100a18);
+    border: 1px solid rgba(255, 222, 139, 0.15);
+    border-radius: 0.5rem;
+    transition: all 0.4s ease;
+}
+.product-admin-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4), 0 0 15px rgba(255, 222, 139, 0.15);
+}
+
+.editor-fab {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    z-index: 100;
+    background-color: #FFDE8B;
+    color: #130f20;
+    border-radius: 9999px;
+    padding: 1rem;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.5);
+    transition: all 0.3s ease;
+}
+.editor-fab:hover {
+    transform: scale(1.1);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+}
+
+.editor-footer {
+    text-align: center;
+    padding: 4rem 1rem 2rem;
+    font-family: 'Cormorant Garamond', serif;
+    color: rgba(255, 222, 139, 0.5);
+    font-style: italic;
+}
+
+.digital-editor-page {
+    --veil-color: #1d1135;
+    background: linear-gradient(170deg, #0e0b1a 0%, var(--veil-color) 70%, #0e0b1a 100%) !important;
+}
+.digital-editor-page .ritual-search-bar, .digital-editor-page .product-admin-card {
+    background: rgba(29, 17, 53, 0.6);
+    border-color: rgba(214, 204, 255, 0.2);
+}
+.digital-editor-page .product-admin-card:hover {
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4), 0 0 15px rgba(214, 204, 255, 0.15);
+}
+
+@keyframes veilReveal {
+    from { opacity: 0; filter: blur(5px); transform: translateY(15px); }
+    to { opacity: 1; filter: blur(0px); transform: translateY(0); }
+}
+.veil-reveal {
+    animation: veilReveal 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+    opacity: 0;
+}
+
+
+.ritual-modal-overlay {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(10, 0, 20, 0.8);
+    backdrop-filter: blur(8px);
+    z-index: 200;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+.ritual-modal-overlay.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.ritual-modal-content {
+    background: linear-gradient(145deg, #1a1024, #100a18);
+    border: 1px solid rgba(255, 222, 139, 0.2);
+    padding: 2rem;
+    border-radius: 0.5rem;
+    width: 90%;
+    max-width: 600px;
+    max-height: 90vh;
+    overflow-y: auto;
+    transform: scale(0.95);
+    transition: transform 0.4s ease;
+}
+.ritual-modal-overlay.visible .ritual-modal-content {
+    transform: scale(1);
+}
+
+/* ================================== */
+/* === INVISIBLE CALLS PAGE STYLES == */
+/* ================================== */
+
+.invisible-calls-page {
+  --page-bg: #0e0b1a;
+  --gold: #ffe599;
+  --lilac: #d6ccff;
+  --ether-blue: #8ba7ff;
+  background-color: var(--page-bg);
+  color: var(--lilac);
+  padding: 6rem 1rem 4rem;
+  overflow: hidden;
+  position: relative;
+}
+
+@keyframes fadeInFromBlack {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.invisible-calls-page {
+    animation: fadeInFromBlack 1.5s ease-out;
+}
+
+.portal-opening {
+  min-height: 50vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 3rem;
+  text-align: center;
+}
+
+@keyframes title-fade-in {
+  from { opacity: 0; text-shadow: 0 0 30px var(--gold); transform: scale(1.1); }
+  to { opacity: 1; text-shadow: 0 0 10px var(--gold); transform: scale(1); }
+}
+
+.portal-title {
+  font-family: 'Cormorant Unicase', serif;
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  color: white;
+  margin-bottom: 1rem;
+  opacity: 0;
+  animation: title-fade-in 2.5s cubic-bezier(0.165, 0.84, 0.44, 1) 0.5s forwards;
+}
+
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+@keyframes blink-caret {
+  from, to { border-color: transparent; }
+  50% { border-color: var(--lilac); }
+}
+
+.portal-subtitle {
+  font-family: 'Spectral', serif;
+  font-weight: 600;
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  color: var(--lilac);
+  overflow: hidden;
+  border-right: .15em solid var(--lilac);
+  white-space: nowrap;
+  letter-spacing: .1em;
+  width: 0;
+  animation: 
+    typing 3s steps(40, end) 1.5s forwards,
+    blink-caret .75s step-end infinite;
+  animation-delay: 1.5s;
+  animation-fill-mode: forwards;
+}
+
+.rune-filters {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+}
+
+.rune-filter {
+  background: transparent;
+  border: 1px solid rgba(214, 204, 255, 0.3);
+  color: var(--lilac);
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+.rune-filter:hover {
+  background-color: rgba(214, 204, 255, 0.1);
+  border-color: var(--lilac);
+  transform: scale(1.1);
+}
+.rune-filter.active {
+  background-color: var(--lilac);
+  color: var(--page-bg);
+  border-color: var(--lilac);
+  box-shadow: 0 0 15px var(--lilac);
+}
+
+.wisdom-card-container {
+  perspective: 1000px;
+}
+
+.wisdom-card {
+  position: relative;
+  background: linear-gradient(160deg, rgba(29, 17, 53, 0.7), rgba(14, 11, 26, 0.7));
+  border: 1px solid rgba(214, 204, 255, 0.15);
+  border-radius: 0.75rem;
+  overflow: hidden;
+  transform-style: preserve-3d;
+  transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1), box-shadow 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+  will-change: transform;
+  display: flex;
+  flex-direction: column;
+}
+.wisdom-card:hover {
+  transform: rotateY(5deg) rotateX(-5deg) scale(1.05);
+  box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5), 0 0 20px rgba(140, 167, 255, 0.2);
+}
+
+.wisdom-card-image-wrapper {
+  position: relative;
+  height: 20rem;
+  overflow: hidden;
+}
+.wisdom-card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+.wisdom-card:hover .wisdom-card-image {
+  transform: scale(1.1);
+}
+.wisdom-card-image-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(14, 11, 26, 0.9) 10%, transparent 70%);
+}
+
+.wisdom-card-content {
+  padding: 1.5rem;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.wisdom-card-seal {
+  display: inline-block;
+  background-color: rgba(214, 204, 255, 0.1);
+  color: var(--lilac);
+  border: 1px solid rgba(214, 204, 255, 0.3);
+  padding: 0.25rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: bold;
+  font-family: 'Poppins', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+  align-self: flex-start;
+}
+
+.wisdom-card-title {
+  font-family: 'Cormorant Unicase', serif;
+  color: white;
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.wisdom-card-description {
+  font-family: 'Spectral', serif;
+  font-size: 0.95rem;
+  color: var(--lilac);
+  opacity: 0.8;
+  line-height: 1.6;
+  flex-grow: 1;
+  margin-bottom: 1.5rem;
+}
+
+.wisdom-card-button {
+  position: relative;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 0.875rem;
+  background-color: transparent;
+  color: var(--gold);
+  border: 1px solid var(--gold);
+  padding: 0.75rem 1.5rem;
+  border-radius: 999px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  width: 100%;
+  text-align: center;
+}
+.wisdom-card-button:hover {
+  background-color: var(--gold);
+  color: var(--page-bg);
+  box-shadow: 0 0 20px var(--gold);
+}
+
+.wisdom-tooltip {
+    position: absolute;
+    bottom: 110%;
+    left: 50%;
+    transform: translateX(-50%) scale(0.9);
+    background-color: var(--gold);
+    color: var(--page-bg);
+    padding: 0.5rem 1rem;
+    border-radius: 0.375rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    pointer-events: none;
+    z-index: 10;
+}
+.wisdom-card-button:hover .wisdom-tooltip {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) scale(1);
+    bottom: 120%;
+}
