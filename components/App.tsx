@@ -1,21 +1,20 @@
-import React, { useState, useEffect, useRef } from 'react';
-import Header from './components/header.tsx';
-import Hero from './components/Hero';
-import ProductShowcase from './components/ProductShowcase';
-import Footer from './components/Footer';
-import EnergyField from './components/EnergyField';
-import RitualCatalogPage from './components/RitualCatalogPage';
-import DigitalProductPage from './components/DigitalProductPage';
-import SankofaUniverse from './components/SankofaUniverse';
-import AccountPage from './components/AccountPage';
-import ContactPage from './components/ContactPage';
-import CartPage from './components/CartPage';
-import AdminRitualPage from './components/AdminRitualPage';
-import PhysicalProductEditor from './components/PhysicalProductEditor';
-import DigitalProductEditor from './components/DigitalProductEditor';
-import InvisibleCallsPage from './components/InvisibleCallsPage';
-import { generateProductDescriptions } from './services/geminiService';
-import type { Product, Guardian } from './types';
+import Header from './Header';
+import Hero from './Hero';
+import ProductShowcase from './ProductShowcase';
+import Footer from './Footer';
+import EnergyField from './EnergyField';
+import RitualCatalogPage from './RitualCatalogPage';
+import DigitalProductPage from './DigitalProductPage';
+import SankofaUniverse from './SankofaUniverse';
+import AccountPage from './AccountPage';
+import ContactPage from './ContactPage';
+import CartPage from './CartPage';
+import AdminRitualPage from './AdminRitualPage';
+import PhysicalProductEditor from './PhysicalProductEditor';
+import DigitalProductEditor from './DigitalProductEditor';
+import InvisibleCallsPage from './InvisibleCallsPage';
+import { generateProductDescriptions } from '../services/geminiService';
+import type { Product, Guardian } from '../types';
 
 type Page = 'home' | 'catalog' | 'product' | 'universe' | 'account' | 'contact' | 'cart' | 'admin-ritual' | 'editor-fisicos' | 'editor-digitais' | 'invisible-calls';
 
