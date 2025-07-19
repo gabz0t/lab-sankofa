@@ -1,4 +1,3 @@
-
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
@@ -13,8 +12,4 @@ root.render(
   <React.StrictMode>
     <App />
   </React.StrictMode>
-<<<<<<< HEAD
 );
-=======
-);
->>>>>>> 37218ee941606064404ce0a43c3ce5b7bf67ba72
