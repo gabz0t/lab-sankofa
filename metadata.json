@@ -1,14 +1,5 @@
-<<<<<<< HEAD
-
-{
-  "name": "Sankofa Lab Showcase new",
-  "description": "An elegant e-commerce landing page for Sankofa Lab, a brand that blends ancestral wisdom with modern innovation. The page features a hero section and AI-generated product showcases using the Gemini API.",
-  "requestFramePermissions": [],
-  "prompt": ""
-=======
 {
   "name": "Sankofa Lab Showcase",
-  "description": "An elegant e-commerce landing page for Sankofa Lab, a brand that blends ancestral wisdom with modern innovation. The page features a hero section and AI-generated product showcases using the Gemini API.",
+  "description": "An elegant e-commerce landing page for Sankofa Lab, a brand that blends ancestral wisdom with modern innovation. The page features a hero section and AI-generated product showcase.",
   "requestFramePermissions": []
->>>>>>> 37218ee941606064404ce0a43c3ce5b7bf67ba72
 }
